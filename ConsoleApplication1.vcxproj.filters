@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Файлы исходного кода">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Заголовочные файлы">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Runner">
+      <UniqueIdentifier>{b4ba93a7-f8d4-40be-ba55-90b4c7454f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Runner">
+      <UniqueIdentifier>{52f6fa33-23e5-49db-95ad-ee516f7b6668}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\Geometry">
+      <UniqueIdentifier>{26a9ecdf-6ed4-41b0-9c18-13fbee83b6b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Заголовочные файлы\DomainData">
+      <UniqueIdentifier>{0b931771-e4c6-4d10-8a85-637fb391cdee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\Geometry">
+      <UniqueIdentifier>{ab542ab1-68e8-42b3-b87e-0a1a037f56f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\DomainData">
+      <UniqueIdentifier>{5f7ed0c1-b072-434d-99c8-7bdaee54d578}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DomainData\ConflictSolver\conflict_solver.cpp">
+      <Filter>Файлы исходного кода\DomainData</Filter>
+    </ClCompile>
+    <ClCompile Include="DomainData\ConflictManager\conflict_manager.cpp">
+      <Filter>Файлы исходного кода\DomainData</Filter>
+    </ClCompile>
+    <ClCompile Include="DomainData\Collection\domain_objects_collection.cpp">
+      <Filter>Файлы исходного кода\DomainData</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Vector\vector.cpp">
+      <Filter>Файлы исходного кода\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Track\track.cpp">
+      <Filter>Файлы исходного кода\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry\Point\point.cpp">
+      <Filter>Файлы исходного кода\Geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\Runner\runner.cpp">
+      <Filter>Файлы исходного кода\Runner</Filter>
+    </ClCompile>
+    <ClCompile Include="Main\main.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="DomainData\Aircraft\aircraft.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DomainData\ConflictSolver\conflict_solver.h">
+      <Filter>Заголовочные файлы\DomainData</Filter>
+    </ClInclude>
+    <ClInclude Include="DomainData\ConflictManager\conflict_manager.h">
+      <Filter>Заголовочные файлы\DomainData</Filter>
+    </ClInclude>
+    <ClInclude Include="DomainData\Collection\domain_objects_collection.h">
+      <Filter>Заголовочные файлы\DomainData</Filter>
+    </ClInclude>
+    <ClInclude Include="DomainData\domain_object.h">
+      <Filter>Заголовочные файлы\DomainData</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Vector\vector.h">
+      <Filter>Заголовочные файлы\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Track\track.h">
+      <Filter>Заголовочные файлы\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry\Point\point.h">
+      <Filter>Заголовочные файлы\Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="Main\Runner\runner.h">
+      <Filter>Заголовочные файлы\Runner</Filter>
+    </ClInclude>
+    <ClInclude Include="DomainData\Aircraft\aircraft.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
