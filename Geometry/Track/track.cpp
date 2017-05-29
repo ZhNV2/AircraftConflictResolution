@@ -12,10 +12,10 @@ namespace {
 
 void Track::Unique() {
 	std::vector<Point> unique;
-	for (auto p : track_points) {
+	for (auto p : track_points_) {
 		if (unique.empty() || unique.back() != p) unique.push_back(p);
 	}
-	track_points = unique;
+	track_points_ = unique;
 }
 
 Track::Track() {}
@@ -54,32 +54,32 @@ std::pair<Track, size_t> Track::GetSlice(double begin, double end, double veloci
 }
 
 void Track::InsertPoint(Point p, size_t pos) {
-	track_points.insert(track_points.begin() + pos, p);
+	track_points_.insert(track_points_.begin() + pos, p);
 	Unique();
 }
 
 void Track::InsertTrack(size_t begin, Point p, const Track &track) {
 	size_t end = begin;
-	while (track_points[end] != p) end++;
-	track_points.erase(track_points.begin() + begin + 1, track_points.begin() + end + 1);
+	while (track_points_[end] != p) end++;
+	track_points_.erase(track_points_.begin() + begin + 1, track_points_.begin() + end + 1);
 	std::vector<Point> to_insert;
 	for (int i = 0; i < (int)track.GetLen(); i++) {
 		to_insert.push_back(track.GetTrackPoint(i));
 	}
-	track_points.insert(track_points.begin() + begin + 1, to_insert.begin(), to_insert.end());
+	track_points_.insert(track_points_.begin() + begin + 1, to_insert.begin(), to_insert.end());
 	Unique();
 }
 
 void Track::AddPoint(Point p) {
-    track_points.push_back(p);
+    track_points_.push_back(p);
 }
 
 Point Track::GetTrackPoint(size_t i) const {
-    return track_points.at(i);
+    return track_points_.at(i);
 }
 
 size_t Track::GetLen() const {
-    return track_points.size();
+    return track_points_.size();
 }
 
 Track_ptr TrackFactory::GenerateTrack() {

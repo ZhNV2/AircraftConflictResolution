@@ -1,9 +1,4 @@
-//
-// Created by Нико on 21.04.2017.
-//
-
-#ifndef ACR_CONFLICT_MANAGER_H
-#define ACR_CONFLICT_MANAGER_H
+#pragma once
 
 #include <vector>
 #include "../domain_object.h"
@@ -13,8 +8,8 @@ class ConflictHolder;
 
 class ConflictManager : public DomainObject {
 private:
-    std::vector<Aircraft_ptr> aircrafts;
-    std::vector<ConflictHolder> conflicts;
+    std::vector<Aircraft_ptr> aircrafts_;
+    std::vector<ConflictHolder> conflicts_;
 public:
 	static double CheckIntersection(const Track &, const Track &, double velocity1, double velocity2);
     ConflictManager(std::vector<Aircraft_ptr>);
@@ -22,7 +17,6 @@ public:
 	std::vector<ConflictHolder>& GetConflicts();
 	std::vector<Aircraft_ptr>& GetAircrafts();
     void Update(double) override;
-	~ConflictManager() override;
 };
 
 typedef std::shared_ptr<ConflictManager> ConflictManager_ptr;
@@ -38,5 +32,3 @@ public:
 };
 
 typedef std::shared_ptr<ConflictManager> ConflictManager_ptr;
-
-#endif //ACR_CONFLICT_MANAGER_H

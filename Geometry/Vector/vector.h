@@ -1,9 +1,4 @@
-//
-// Created by Нико on 21.04.2017.
-//
-
-#ifndef ACR_VECTOR_H
-#define ACR_VECTOR_H
+#pragma once
 
 #include "../Point/point.h"
 
@@ -16,4 +11,3 @@ public:
     double Len();
     Vector& operator *= (double k);
 };
-#endif //ACR_VECTOR_H

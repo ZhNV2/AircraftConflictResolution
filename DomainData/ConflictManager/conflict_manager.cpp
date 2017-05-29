@@ -1,7 +1,3 @@
-//
-// Created by Нико on 21.04.2017.
-//
-
 #include <cmath>
 #include <iostream>
 #include "conflict_manager.h"
@@ -78,44 +74,42 @@ double ConflictManager::CheckIntersection(const Track &track1, const Track &trac
 	return -2;
 }
 
-ConflictManager::ConflictManager(std::vector<Aircraft_ptr> v) : aircrafts(v) {}
+ConflictManager::ConflictManager(std::vector<Aircraft_ptr> v) : aircrafts_(v) {}
 
 double ConflictManager::GetPredictionTime() {
 	return PREDICTION_TIME;
 }
 
 std::vector<ConflictHolder>& ConflictManager::GetConflicts() {
-	return conflicts;
+	return conflicts_;
 }
 
 std::vector<Aircraft_ptr>& ConflictManager::GetAircrafts() {
-	return aircrafts;
+	return aircrafts_;
 }
 
 void ConflictManager::Update(double) {
-    conflicts.clear();
+    conflicts_.clear();
     std::vector<Track> predictions;
-	for (auto aircraft : aircrafts) {
+	for (auto aircraft : aircrafts_) {
 		auto prediction = aircraft->GetPrediction(PREDICTION_TIME);
         predictions.push_back(prediction);
     }
-    for (size_t i = 0; i < aircrafts.size(); i++) {
-        for (size_t j = i + 1; j < aircrafts.size(); j++) {
-			if (!aircrafts[i]->IsFlying()) return;
-			if (!aircrafts[j]->IsFlying()) return;
-			double conflict_time = CheckIntersection(predictions[i], predictions[j], aircrafts[i]->GetVelocity(), aircrafts[j]->GetVelocity());
+    for (size_t i = 0; i < aircrafts_.size(); i++) {
+        for (size_t j = i + 1; j < aircrafts_.size(); j++) {
+			if (!aircrafts_[i]->IsFlying()) return;
+			if (!aircrafts_[j]->IsFlying()) return;
+			double conflict_time = CheckIntersection(predictions[i], predictions[j], aircrafts_[i]->GetVelocity(), aircrafts_[j]->GetVelocity());
 			if (conflict_time > -1) {
 				if (conflict_time < 0.01) {
 					std::cerr << "CONFLICT!!!!!!!\n";
 				}
-				conflicts.push_back(ConflictHolder(aircrafts[i], aircrafts[j], conflict_time));
+				conflicts_.push_back(ConflictHolder(aircrafts_[i], aircrafts_[j], conflict_time));
 			}
         }
     }
 }
 
-ConflictManager::~ConflictManager() {
-}
 
 ConflictHolder::ConflictHolder(Aircraft_ptr first_aircraft, Aircraft_ptr second_aircraft, double time_to_conflict)
         : first_aircraft(first_aircraft), second_aircraft(second_aircraft), time_to_conflict(time_to_conflict) {}

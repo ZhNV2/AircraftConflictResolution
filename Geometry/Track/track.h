@@ -1,9 +1,4 @@
-//
-// Created by Нико on 21.04.2017.
-//
-
-#ifndef ACR_TRACK_H
-#define ACR_TRACK_H
+#pragma once
 
 #include <vector>
 #include <memory>
@@ -11,7 +6,7 @@
 
 class Track {
 private:
-    std::vector<Point> track_points;
+    std::vector<Point> track_points_;
 	void Unique();
 
 public:
@@ -33,4 +28,3 @@ public:
     Track_ptr GenerateTrack();
 };
 
-#endif //ACR_TRACK_H

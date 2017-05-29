@@ -89,6 +89,7 @@ namespace {
 			for (int dx = -1; dx <= 1; dx++) {
 				for (int dy = -1; dy <= 1; dy++) {
 					for (int dz = -1; dz <= 1; dz++) {
+						if (dz) continue;
 						IntPoint u = IntPoint(v.x + dx, v.y + dy, v.z + dz);
 						if (used[u]) continue;
 						double time = min_dist[v] + MinTime(v, u, velocity);
@@ -125,7 +126,7 @@ namespace {
 
 
 void ConflictSolver::Update(double time) {
-	std::vector<std::vector<Aircraft_ptr>> clasters = BuildClasses(conflict_manager->GetAircrafts(), conflict_manager->GetConflicts());
+	std::vector<std::vector<Aircraft_ptr>> clasters = BuildClasses(conflict_manager_->GetAircrafts(), conflict_manager_->GetConflicts());
 	std::cout << "solver" << std::endl;
 	for (auto claster : clasters) {
 		for (auto aircraft : claster) {
@@ -166,7 +167,4 @@ void ConflictSolver::SolveClaster(const std::vector<Aircraft_ptr>& claster) {
 	}
 }
 
-ConflictSolver::~ConflictSolver() {
-}
-
-ConflictSolver::ConflictSolver(ConflictManager_ptr conf_manager) : conflict_manager(conf_manager) {}
+ConflictSolver::ConflictSolver(ConflictManager_ptr conf_manager) : conflict_manager_(conf_manager) {}
