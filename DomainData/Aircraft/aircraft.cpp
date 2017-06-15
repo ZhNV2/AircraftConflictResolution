@@ -4,6 +4,7 @@
 
 #include "aircraft.h"
 #include <iostream>
+#include <qdebug.h>
 
 Aircraft::Aircraft(Track_ptr track1, double velocity1, int ID1) : track_(track1), pos_in_track_(0),
                                                       time_from_point_(0), velocity_(velocity1 / 60 / 60),
@@ -39,10 +40,13 @@ void Aircraft::Update(double time) {
     Vector v = Vector(cur_point, next_point);
     v *= (time_from_point_ * velocity_ / v.Len());
     position_ = cur_point.AddVector(v);
-	std::cout << "aircraft " << ID_ << std::endl;
-    std::cout << position_.x << " " << position_.y << " " << position_.z << std::endl;
-	for (size_t i = 0; i < track_->GetLen(); i++) std::cout << "(" << track_->GetTrackPoint(i).x << " " << track_->GetTrackPoint(i).y << " " << track_->GetTrackPoint(i).z << ")";
-	std::cout << std::endl;
+	
+	
+	qDebug() << "aircraft " << ID_ << "\n";
+	qDebug() << position_.x << " " << position_.y << " " << position_.z << "\n";
+	for (size_t i = 0; i < track_->GetLen(); i++) qDebug() << "(" << track_->GetTrackPoint(i).x << " " << track_->GetTrackPoint(i).y << " " << track_->GetTrackPoint(i).z << " " << track_->GetTrackPoint(i).x + track_->GetTrackPoint(i).y << ")";
+	qDebug() << "\n";
+
 }
 
 Point Aircraft::GetPosition() const {

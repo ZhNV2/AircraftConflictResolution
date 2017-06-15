@@ -12,7 +12,6 @@ Runner::Runner(int aircraft_number) {
 }
 
 void Runner::Run() {
-
 	double last_time = 0;
 	while (true) {
 		double cur_time = clock() / CLOCKS_PER_SEC;

@@ -8,42 +8,23 @@
 #include "DomainData/Aircraft/aircraft.h"
 #include "Main/Runner/runner.h"
 
-class Widget : public QWidget
-{
-protected:
-	void paintEvent(QPaintEvent *event)
-	{
-		QRect rec = QApplication::desktop()->screenGeometry();
-		int height = rec.height();
-		int width = rec.width();
-		QPainter painter(this);
-		painter.setPen(QPen(Qt::black, 2));
-		painter.drawLine(0, 0, width, height);
-	}
-};
+
+#include <qstring.h>
+#include <qfile.h>
+#include <qtextstream.h>
+#include <cassert>
+
+#include <ctime>
 
 int main(int argc, char *argv[])
 {
+
+	srand(time(0));
+
 	QApplication a(argc, argv);
-	Runner runner = Runner(2);
+	Runner runner = Runner(4);
 	runner.Run();
 
-	//Widget w;
-	//w.show();
-
-	//	w.close();
+	while (1);
 	return a.exec();
 }
-
-/*#include "mainwindow.h"
-#include <QApplication>
-
-int main(int argc, char *argv[])
-{
-
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-
-    return a.exec();
-}*/

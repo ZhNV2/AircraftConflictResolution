@@ -11,6 +11,7 @@ private:
     std::vector<Aircraft_ptr> aircrafts_;
     std::vector<ConflictHolder> conflicts_;
 public:
+	static double GetMinDist();
 	static double CheckIntersection(const Track &, const Track &, double velocity1, double velocity2);
     ConflictManager(std::vector<Aircraft_ptr>);
 	static double GetPredictionTime();

@@ -6,7 +6,7 @@
 class Runner {
 private:
 	DomainObjectsCollection_ptr domain_objects_collection_;
-	const unsigned long SLEEP_TIME = 1000; // ms
+	const unsigned long SLEEP_TIME = 100; // ms
 public:
 	Runner(int);
 	void Run();

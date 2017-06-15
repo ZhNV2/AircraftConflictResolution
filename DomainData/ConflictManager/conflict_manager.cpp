@@ -1,4 +1,5 @@
 #include <cmath>
+#include <cassert>
 #include <iostream>
 #include "conflict_manager.h"
 #include <algorithm>
@@ -6,9 +7,10 @@
 
 namespace {
 
-    const double PREDICTION_TIME = 5; // s
+    const double PREDICTION_TIME = 40; // s
     const double MIN_DIST = 1;
     const double EPS = 1e-9;
+
 
     double DetectConflict(Point p1, Point p2, Vector v1, Vector v2, double max_time) {
         if (Vector(p1, p2).Len() < MIN_DIST) return 0;
@@ -74,6 +76,11 @@ double ConflictManager::CheckIntersection(const Track &track1, const Track &trac
 	return -2;
 }
 
+
+double ConflictManager::GetMinDist() {
+	return MIN_DIST;
+}
+
 ConflictManager::ConflictManager(std::vector<Aircraft_ptr> v) : aircrafts_(v) {}
 
 double ConflictManager::GetPredictionTime() {
@@ -103,6 +110,7 @@ void ConflictManager::Update(double) {
 			if (conflict_time > -1) {
 				if (conflict_time < 0.01) {
 					std::cerr << "CONFLICT!!!!!!!\n";
+					assert(false);
 				}
 				conflicts_.push_back(ConflictHolder(aircrafts_[i], aircrafts_[j], conflict_time));
 			}

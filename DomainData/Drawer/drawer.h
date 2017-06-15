@@ -15,12 +15,13 @@
 class Widget : public QWidget
 {
 public:
-	Widget(std::vector<Segment> segments, std::vector<Point> positions, QWidget *parent = 0);
+	Widget(std::vector<std::pair<Segment, QColor>> segments, std::vector<std::pair<Point, QColor>> positions, QWidget *parent = 0);
+	void reBuild(std::vector<std::pair<Segment, QColor>>, std::vector<std::pair<Point, QColor>>);
 protected:
 	void paintEvent(QPaintEvent *event);
 private:
-	std::vector<Segment> segments_;
-	std::vector<Point> positions_;
+	std::vector<std::pair<Segment, QColor> > segments_;
+	std::vector<std::pair<Point, QColor> > positions_;
 };
 
 typedef std::shared_ptr<Widget> Widget_ptr;
@@ -33,6 +34,7 @@ private:
 	std::vector<Aircraft_ptr> aircrafts_;
 	Widget_ptr widget_;
 	void runWidget();
+	std::map<int, QColor> air_colors_;
 };
 
 

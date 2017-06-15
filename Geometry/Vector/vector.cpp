@@ -11,7 +11,10 @@ Vector::Vector(const Point &p1, const Point &p2) {
     z = p2.z - p1.z;
 }
 
-double Vector::Len() {
+Vector::Vector(double x1, double y1, double z1) : x(x1), y(y1), z(z1) {
+}
+
+double Vector::Len() const {
     return sqrt(x * x + y * y + z * z);
 }
 
@@ -20,4 +23,8 @@ Vector &Vector::operator*=(double k) {
     y *= k;
     z *= k;
     return *this;
+}
+
+double Vector::cos(const Vector & v1, const Vector & v2) {
+	return (v1.x * v2.x + v1.y * v2.y) / v1.Len() / v2.Len();
 }

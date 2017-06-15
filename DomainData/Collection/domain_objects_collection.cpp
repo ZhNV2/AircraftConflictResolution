@@ -26,6 +26,7 @@ void DomainObjectsCollection::Update(double time) {
     for (auto obj : objects_) {
         obj->Update(time);
     }
+	
 }
 
 bool DomainObjectsCollection::IsFlyingYet() {

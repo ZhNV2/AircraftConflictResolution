@@ -23,3 +23,4 @@ bool Point::operator!=(const Point &p) {
 	return !(*this == p);
 }
 
+
